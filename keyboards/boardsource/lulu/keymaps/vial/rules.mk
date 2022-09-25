@@ -4,3 +4,4 @@ VIAL_INSECURE = yes
 ENCODER_ENABLE = yes
 ENCODER_MAP_ENABLE = yes
 VIALRGB_ENABLE = yes
+SRC += features/casemodes.c

@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 #include QMK_KEYBOARD_H
+#include "features/casemodes.h"
 
 enum layers {
     _BASE,
@@ -115,3 +116,45 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
     [_ADJUST] = { ENCODER_CCW_CW(RGB_RMOD, RGB_MOD),          ENCODER_CCW_CW(KC_RIGHT, KC_LEFT) },
 };
 #endif
+
+enum custom_keycodes {
+    CAPS_WORD_CASE = USER00,
+    SNAKE_CASE = USER01,
+    CONSTANT_CASE = USER02,
+    CAMEL_CASE = USER03
+};
+
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    // Process case modes
+    if (!process_case_modes(keycode, record)) {
+        return false;
+    }
+
+    // Regular user keycode case statement
+    switch (keycode) {
+        case CAPS_WORD_CASE:
+            if (record->event.pressed) {
+                enable_caps_word();
+            }
+            return false;
+        case SNAKE_CASE:
+            if (record->event.pressed) {
+                enable_xcase_with(KC_UNDS);
+            }
+            return false;
+        case CONSTANT_CASE:
+            if (record->event.pressed) {
+                enable_caps_word();
+                enable_xcase_with(KC_UNDS);
+            }
+            return false;
+        case CAMEL_CASE:
+            if (record->event.pressed) {
+                enable_xcase_with(OSM(MOD_LSFT));
+            }
+            return false;
+        default:
+            return true;
+    }
+}
