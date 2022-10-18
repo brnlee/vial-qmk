@@ -118,10 +118,10 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
 #endif
 
 enum custom_keycodes {
-    CAPS_WORD_CASE = USER00,
-    SNAKE_CASE = USER01,
-    CONSTANT_CASE = USER02,
-    CAMEL_CASE = USER03
+    CAPS_WORD_CASE = USER00, // CAPSWORDCASE
+    SNAKE_CASE = USER01, // snake_case
+    CONSTANT_CASE = USER02, // CONSTANT_CASE
+    CAMEL_CASE = USER03 // camelCase
 };
 
 
