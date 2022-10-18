@@ -9,6 +9,9 @@ The lulu is what the ergo community has needed for a long time, a high-end aesth
 * Hardware Supported: lulu v1
 * Hardware Availability: this keyboard is available from the [Boardsource store](https://boardsource.xyz/store/61d0b772319a1f3cc53ba2fb)
 
+Qmk CLI example for this keyboard:
+
+    qmk compile -kb boardsource/lulu/rp2040 -km vial
 
 Make example for this keyboard (after setting up your build environment):
 
