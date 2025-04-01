@@ -24,10 +24,10 @@ enum my_keycodes {
 
 #define UKC_LPAREN S(KC_9)       // (
 #define UKC_RPAREN S(KC_0)       // )
-#define UKC_LBRAKT S(KC_9)       // [
-#define UKC_RBRAKT S(KC_0)       // ]
-#define UKC_LBRACE S(KC_9)       // {
-#define UKC_RBRACE S(KC_0)       // }
+#define UKC_LBRAKT KC_LBRC       // [
+#define UKC_RBRAKT KC_RBRC       // ]
+#define UKC_LBRACE S(KC_LBRC)    // {
+#define UKC_RBRACE S(KC_RBRC)    // }
 
 #define UKC_PLUS  S(KC_EQUAL)    // +
 #define UKC_UNSCR S(KC_MINUS)    // _

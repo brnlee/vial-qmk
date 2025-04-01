@@ -5,7 +5,6 @@ CAPS_WORD_ENABLE 	= yes
 	SRC += caps_word.c
 KEY_OVERRIDE_ENABLE = yes
   	SRC += overrides.c
-TRI_LAYER_ENABLE    = yes
 
 # ####################
 # ### Space Saving ###
