@@ -3,15 +3,14 @@ VIAL_ENABLE = yes
 
 CAPS_WORD_ENABLE 	= yes
 	SRC += caps_word.c
-KEY_OVERRIDE_ENABLE = yes
-  	SRC += overrides.c
+TRI_LAYER_ENABLE    = yes
+MAGIC_ENABLE 		= yes
 
 # ####################
 # ### Space Saving ###
 # ####################
 
-LTO_ENABLE = yes
-SPACE_CADET_ENABLE = no
-GRAVE_ESC_ENABLE = no 
-MAGIC_ENABLE = no
-MUSIC_ENABLE = no
+LTO_ENABLE 			= yes
+SPACE_CADET_ENABLE  = no
+GRAVE_ESC_ENABLE 	= no 
+MUSIC_ENABLE 		= no

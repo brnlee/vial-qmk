@@ -14,7 +14,7 @@ enum my_keycodes {
 
 #define UKC_PTAB  C(S((KC_TAB))) // Previous tab
 #define UKC_NTAB  C(KC_TAB)      // Next tab
-#define UKC_RTAB  C(S(KC_T))     // Restore tab
+#define UKC_RTAB  G(S(KC_T))     // Restore tab
 
 #define UKC_PDESK C(KC_LEFT)     // Previous desktop
 #define UKC_NDESK C(KC_RIGHT)    // Next desktop
@@ -32,5 +32,5 @@ enum my_keycodes {
 #define UKC_PLUS  S(KC_EQUAL)    // +
 #define UKC_UNSCR S(KC_MINUS)    // _
 
-#define UKC_SSPART LSG(KC_3)     // Capture a portion of the screen 
-#define UKC_SSWIN  LSG(KC_4)     // Capture a window
+#define UKC_SSPART LSG(KC_4)     // Capture a portion of the screen 
+#define UKC_SSWIN  LSG(KC_5)     // Capture a window

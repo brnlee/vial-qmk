@@ -6,6 +6,13 @@
 #define VIAL_UNLOCK_COMBO_ROWS { 0, 0 }
 #define VIAL_UNLOCK_COMBO_COLS { 0, 1 }
 
+// --- ---------- ---
+// --- Tri Layers ---
+// --- ---------- ---
+#define TRI_LAYER_LOWER_LAYER 2
+#define TRI_LAYER_UPPER_LAYER 3
+#define TRI_LAYER_ADJUST_LAYER 4
+
 // --- ------------ ---
 // --- Space Saving ---
 // --- ------------ ---
