@@ -10,196 +10,108 @@
     "lighting": "qmk_rgblight",
     "menus": [
       {
-        "label": "Indicators",
+        "label": "Lighting",
         "content": [
           {
-            "label": "Left indicator",
+            "label": "Indicators",
             "content": [
               {
-                "label": "Enable Left Indicator",
+                "label": "Enable Num Lock indicator",
                 "type": "toggle",
-                "content": ["id_ind3_enabled", 0, 11]
-              },
-              {
-                "showIf": "{id_ind3_enabled} == 1",
                 "content": [
-                  {
-                    "label": "Brightness",
-                    "type": "range",
-                    "options": [0, 255],
-                    "content": ["id_ind3_brightness", 0, 12]
-                  },
-                  {
-                    "label": "Color",
-                    "type": "color",
-                    "content": ["id_ind3_color", 0, 13]
-                  },
-                  {
-                    "label": "Function 1",
-                    "type": "dropdown",
-                    "options": [
-                      "None",
-                      "Caps Lock",
-                      "Num Lock",
-                      "Scroll Lock",
-                      "Layer 0",
-                      "Layer 1",
-                      "Layer 2",
-                      "Layer 3",
-                      "Layer 4",
-                      "Layer 5",
-                      "Layer 6",
-                      "Layer 7"
-                    ],
-                    "content": ["id_ind3_func1", 0, 14]
-                  },
-                  {
-                    "label": "Function 2",
-                    "type": "dropdown",
-                    "options": [
-                      "None",
-                      "Caps Lock",
-                      "Num Lock",
-                      "Scroll Lock",
-                      "Layer 0",
-                      "Layer 1",
-                      "Layer 2",
-                      "Layer 3",
-                      "Layer 4",
-                      "Layer 5",
-                      "Layer 6",
-                      "Layer 7"
-                    ],
-                    "content": ["id_ind3_func2", 0, 15]
-                  }
+                  "id_num_indicator_enabled",
+                  0,
+                  1
                 ]
-              }
-            ]
-          },
-          {
-            "label": "Central indicator",
-            "content": [
-              {
-                "label": "Enable Central Indicator",
-                "type": "toggle",
-                "content": ["id_ind2_enabled", 0, 6]
               },
               {
-                "showIf": "{id_ind2_enabled} == 1",
+                "showIf": "{id_num_indicator_enabled} == 1",
+                "label": "Num Lock indicator brightness",
+                "type": "range",
+                "options": [
+                  0,
+                  255
+                ],
                 "content": [
-                  {
-                    "label": "Brightness",
-                    "type": "range",
-                    "options": [0, 255],
-                    "content": ["id_ind2_brightness", 0, 7]
-                  },
-                  {
-                    "label": "Color",
-                    "type": "color",
-                    "content": ["id_ind2_color", 0, 8]
-                  },
-                  {
-                    "label": "Function 1",
-                    "type": "dropdown",
-                    "options": [
-                      "None",
-                      "Caps Lock",
-                      "Num Lock",
-                      "Scroll Lock",
-                      "Layer 0",
-                      "Layer 1",
-                      "Layer 2",
-                      "Layer 3",
-                      "Layer 4",
-                      "Layer 5",
-                      "Layer 6",
-                      "Layer 7"
-                    ],
-                    "content": ["id_ind2_func1", 0, 9]
-                  },
-                  {
-                    "label": "Function 2",
-                    "type": "dropdown",
-                    "options": [
-                      "None",
-                      "Caps Lock",
-                      "Num Lock",
-                      "Scroll Lock",
-                      "Layer 0",
-                      "Layer 1",
-                      "Layer 2",
-                      "Layer 3",
-                      "Layer 4",
-                      "Layer 5",
-                      "Layer 6",
-                      "Layer 7"
-                    ],
-                    "content": ["id_ind2_func2", 0, 10]
-                  }
+                  "id_num_indicator_brightness",
+                  0,
+                  2
                 ]
-              }
-            ]
-          },
-          {
-            "label": "Right indicator",
-            "content": [
-              {
-                "label": "Enable Right Indicator",
-                "type": "toggle",
-                "content": ["id_ind1_enabled", 0, 1]
               },
               {
-                "showIf": "{id_ind1_enabled} == 1",
+                "showIf": "{id_num_indicator_enabled} == 1",
+                "label": "Num Lock indicator color",
+                "type": "color",
                 "content": [
-                  {
-                    "label": "Brightness",
-                    "type": "range",
-                    "options": [0, 255],
-                    "content": ["id_ind1_brightness", 0, 2]
-                  },
-                  {
-                    "label": "Color",
-                    "type": "color",
-                    "content": ["id_ind1_color", 0, 3]
-                  },
-                  {
-                    "label": "Function 1",
-                    "type": "dropdown",
-                    "options": [
-                      "None",
-                      "Caps Lock",
-                      "Num Lock",
-                      "Scroll Lock",
-                      "Layer 0",
-                      "Layer 1",
-                      "Layer 2",
-                      "Layer 3",
-                      "Layer 4",
-                      "Layer 5",
-                      "Layer 6",
-                      "Layer 7"
-                    ],
-                    "content": ["id_ind1_func1", 0, 4]
-                  },
-                  {
-                    "label": "Function 2",
-                    "type": "dropdown",
-                    "options": [
-                      "None",
-                      "Caps Lock",
-                      "Num Lock",
-                      "Scroll Lock",
-                      "Layer 0",
-                      "Layer 1",
-                      "Layer 2",
-                      "Layer 3",
-                      "Layer 4",
-                      "Layer 5",
-                      "Layer 6",
-                      "Layer 7"
-                    ],
-                    "content": ["id_ind1_func2", 0, 5]
-                  }
+                  "id_num_indicator_color",
+                  0,
+                  3
+                ]
+              },
+              {
+                "label": "Enable Caps Lock indicator",
+                "type": "toggle",
+                "content": [
+                  "id_caps_indicator_enabled",
+                  0,
+                  4
+                ]
+              },
+              {
+                "showIf": "{id_caps_indicator_enabled} == 1",
+                "label": "Caps Lock indicator brightness",
+                "type": "range",
+                "options": [
+                  0,
+                  255
+                ],
+                "content": [
+                  "id_caps_indicator_brightness",
+                  0,
+                  5
+                ]
+              },
+              {
+                "showIf": "{id_caps_indicator_enabled} == 1",
+                "label": "Caps Lock indicator color",
+                "type": "color",
+                "content": [
+                  "id_caps_indicator_color",
+                  0,
+                  6
+                ]
+              },
+              {
+                "label": "Enable Scroll Lock indicator",
+                "type": "toggle",
+                "content": [
+                  "id_scroll_indicator_enabled",
+                  0,
+                  7
+                ]
+              },
+              {
+                "showIf": "{id_scroll_indicator_enabled} == 1",
+                "label": "Scroll Lock indicator brightness",
+                "type": "range",
+                "options": [
+                  0,
+                  255
+                ],
+                "content": [
+                  "id_scroll_indicator_brightness",
+                  0,
+                  8
+                ]
+              },
+              {
+                "showIf": "{id_scroll_indicator_enabled} == 1",
+                "label": "Scroll Lock indicator color",
+                "type": "color",
+                "content": [
+                  "id_scroll_indicator_color",
+                  0,
+                  9
                 ]
               }
             ]
@@ -215,8 +127,15 @@
               {
                 "label": "Mode",
                 "type": "dropdown",
-                "options": ["APC", "Rapid Trigger"],
-                "content": ["id_actuation_mode", 0, 16]
+                "options": [
+                  "APC",
+                  "Rapid Trigger"
+                ],
+                "content": [
+                  "id_actuation_mode",
+                  0,
+                  10
+                ]
               },
               {
                 "showIf": "{id_actuation_mode} == 0",
@@ -224,20 +143,40 @@
                   {
                     "label": "Actuation Level (0% | 100%)",
                     "type": "range",
-                    "options": [1, 1023],
-                    "content": ["id_mode_0_actuation_threshold", 0, 17]
+                    "options": [
+                      1,
+                      1023
+                    ],
+                    "content": [
+                      "id_mode_0_actuation_threshold",
+                      0,
+                      11
+                    ]
                   },
                   {
                     "label": "Release Level (0% | 100%, ALWAYS < Actuation Level)",
                     "type": "range",
-                    "options": [1, 1023],
-                    "content": ["id_mode_0_release_threshold", 0, 18]
+                    "options": [
+                      1,
+                      1023
+                    ],
+                    "content": [
+                      "id_mode_0_release_threshold",
+                      0,
+                      12
+                    ]
                   },
                   {
                     "label": "Apply & save changes",
                     "type": "button",
-                    "options": [0],
-                    "content": ["id_save_threshold_data", 0, 19]
+                    "options": [
+                      0
+                    ],
+                    "content": [
+                      "id_save_threshold_data",
+                      0,
+                      13
+                    ]
                   }
                 ]
               },
@@ -247,26 +186,53 @@
                   {
                     "label": "Initial Deadzone Offset (0% | 100%)",
                     "type": "range",
-                    "options": [1, 1023],
-                    "content": ["id_mode_1_initial_deadzone_offset", 0, 20]
+                    "options": [
+                      1,
+                      1023
+                    ],
+                    "content": [
+                      "id_mode_1_initial_deadzone_offset",
+                      0,
+                      14
+                    ]
                   },
                   {
                     "label": "Actuation Offset (1-255)",
                     "type": "range",
-                    "options": [1, 255],
-                    "content": ["id_mode_1_actuation_offset", 0, 21]
+                    "options": [
+                      1,
+                      255
+                    ],
+                    "content": [
+                      "id_mode_1_actuation_offset",
+                      0,
+                      15
+                    ]
                   },
                   {
                     "label": "Release Offset (1-255)",
                     "type": "range",
-                    "options": [1, 255],
-                    "content": ["id_mode_1_release_offset", 0, 22]
+                    "options": [
+                      1,
+                      255
+                    ],
+                    "content": [
+                      "id_mode_1_release_offset",
+                      0,
+                      16
+                    ]
                   },
                   {
                     "label": "Apply & save changes",
                     "type": "button",
-                    "options": [1],
-                    "content": ["id_save_threshold_data", 0, 19]
+                    "options": [
+                      1
+                    ],
+                    "content": [
+                      "id_save_threshold_data",
+                      0,
+                      13
+                    ]
                   }
                 ]
               }
@@ -278,25 +244,47 @@
               {
                 "label": "Bottoming Calibration",
                 "type": "toggle",
-                "content": ["id_bottoming_calibration", 0, 23]
+                "content": [
+                  "id_bottoming_calibration",
+                  0,
+                  17
+                ]
               },
               {
                 "label": "Noise Floor Calibration (DO NOT PRESS ANY KEY WHILE CLICKING)",
                 "type": "button",
-                "options": [0],
-                "content": ["id_noise_floor_calibration", 0, 24]
+                "options": [
+                  0
+                ],
+                "content": [
+                  "id_noise_floor_calibration",
+                  0,
+                  18
+                ]
               },
               {
                 "label": "Show Calibration Data",
                 "type": "button",
-                "options": [0],
-                "content": ["id_show_calibration_data", 0, 25]
+                "options": [
+                  0
+                ],
+                "content": [
+                  "id_show_calibration_data",
+                  0,
+                  19
+                ]
               },
               {
                 "label": "Clear Bottoming Calibration Data",
                 "type": "button",
-                "options": [0],
-                "content": ["id_clear_bottoming_calibration_data", 0, 26]
+                "options": [
+                  0
+                ],
+                "content": [
+                  "id_clear_bottoming_calibration_data",
+                  0,
+                  20
+                ]
               }
             ]
           }

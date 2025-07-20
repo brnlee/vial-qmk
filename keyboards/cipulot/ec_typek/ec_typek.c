@@ -16,6 +16,8 @@
 
 #include "ec_switch_matrix.h"
 #include "quantum.h"
+#include "layers.h"
+#include "print.h"
 
 void eeconfig_init_kb(void) {
     // Default values
@@ -76,23 +78,37 @@ void keyboard_post_init_kb(void) {
 
     // Set the RGB LEDs range that will be used for the effects
     rgblight_set_effect_range(3, 66);
-    // Call the indicator callback to set the indicator color
-    indicators_callback();
 
     keyboard_post_init_user();
 }
 
-// This function gets called when caps, num, scroll change
-bool led_update_kb(led_t led_state) {
-    if (led_update_user(led_state)) {
-        indicators_callback();
-    }
-    return true;
-}
-
 // This function is called when layers change
 __attribute__((weak)) layer_state_t layer_state_set_user(layer_state_t state) {
-    indicators_callback();
+    rgblight_sethsv_range(0, 0, 0, SCROLL_INDICATOR_INDEX, NUM_INDICATOR_INDEX + 1);
+
+    switch(get_highest_layer(state)) {
+        case _NAV:   
+            set_indicator(NUM_INDICATOR_INDEX);
+            break;
+        case _NUM:   
+            set_indicator(CAPS_INDICATOR_INDEX);
+            break;
+        case _SYM:
+            set_indicator(NUM_INDICATOR_INDEX);
+            set_indicator(CAPS_INDICATOR_INDEX);
+            break;
+        default:
+            break;
+    }
+
+    switch (get_highest_layer(default_layer_state)) {
+        case _QWERTY:
+            set_indicator(SCROLL_INDICATOR_INDEX);
+            break;
+        default:
+            break;
+    }
+
     return state;
 }
 
@@ -103,21 +119,32 @@ __attribute__((weak)) layer_state_t layer_state_set_user(layer_state_t state) {
  * -----+------+--------
  * Num  | Caps | Scroll |
  */
-bool indicators_callback(void) {
-    if ((eeprom_ec_config.num.enabled) && (host_keyboard_led_state().num_lock))
-        rgblight_sethsv_at(eeprom_ec_config.num.h, eeprom_ec_config.num.s, eeprom_ec_config.num.v, NUM_INDICATOR_INDEX);
-    else
-        rgblight_sethsv_at(0, 0, 0, NUM_INDICATOR_INDEX);
-
-    if ((eeprom_ec_config.caps.enabled) && (host_keyboard_led_state().caps_lock))
-        rgblight_sethsv_at(eeprom_ec_config.caps.h, eeprom_ec_config.caps.s, eeprom_ec_config.caps.v, CAPS_INDICATOR_INDEX);
-    else
-        rgblight_sethsv_at(0, 0, 0, CAPS_INDICATOR_INDEX);
-
-    if ((eeprom_ec_config.scroll.enabled) && (host_keyboard_led_state().scroll_lock))
-        rgblight_sethsv_at(eeprom_ec_config.scroll.h, eeprom_ec_config.scroll.s, eeprom_ec_config.scroll.v, SCROLL_INDICATOR_INDEX);
-    else
-        rgblight_sethsv_at(0, 0, 0, SCROLL_INDICATOR_INDEX);
+bool set_indicator(uint8_t index) {
+    switch (index) {
+        case NUM_INDICATOR_INDEX:
+            if (eeprom_ec_config.num.enabled) {
+                rgblight_sethsv_at(eeprom_ec_config.num.h, eeprom_ec_config.num.s, eeprom_ec_config.num.v, index);
+            } else {
+                rgblight_sethsv_at(0, 0, 0, index);
+            }
+            break;
+        case CAPS_INDICATOR_INDEX:
+            if (eeprom_ec_config.caps.enabled) {
+                rgblight_sethsv_at(eeprom_ec_config.caps.h, eeprom_ec_config.caps.s, eeprom_ec_config.caps.v, index);
+            } else {
+                rgblight_sethsv_at(0, 0, 0, index);
+            }
+            break;
+        case SCROLL_INDICATOR_INDEX:
+            if (eeprom_ec_config.scroll.enabled) {
+                rgblight_sethsv_at(eeprom_ec_config.scroll.h, eeprom_ec_config.scroll.s, eeprom_ec_config.scroll.v, index);
+            } else {
+                rgblight_sethsv_at(0, 0, 0, index);
+            }
+            break;
+        default:
+            return false;
+    }
 
     rgblight_set();
     return true;
