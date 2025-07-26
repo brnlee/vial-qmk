@@ -21,11 +21,11 @@
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // clang-format off
     [_COLEMAK] = LAYOUT(
-        KC_HOME, XXXXXXX, KC_1,        KC_2,        KC_3,        KC_4,        KC_5,    KC_6, KC_7,    KC_8,    KC_9,         KC_0,          KC_MINS,      KC_EQL,       KC_BSLS,  KC_GRV,
-        KC_END,  XXXXXXX, KC_Q,        KC_W,        KC_F,        KC_P,        KC_B,          KC_MPRV, KC_J,    KC_L,         KC_U,          KC_Y,         KC_QUOT,      KC_SCLN,  XXXXXXX,
-        KC_PGUP, KC_TAB,  GUI_T(KC_A), ALT_T(KC_R), CTL_T(KC_S), SFT_T(KC_T), KC_G,          KC_MNXT, KC_M,    RSFT_T(KC_N), RCTL_T(KC_E),  RALT_T(KC_I), RGUI_T(KC_O), KC_ENTER,
-        KC_PGDN, KC_ESC,  KC_X,        KC_C,        KC_D,        KC_V,        KC_Z,          KC_MPLY, KC_SLSH, KC_K,         KC_H,          KC_COMM,      KC_DOT,       MO(_NAV), XXXXXXX,
-                 XXXXXXX,                           TL_LOWR,     KC_SPC,      XXXXXXX,       XXXXXXX, KC_BSPC, TL_UPPR,                                                           XXXXXXX
+        KC_HOME, XXXXXXX, XXXXXXX,     XXXXXXX,     XXXXXXX,     XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,      XXXXXXX,       XXXXXXX,      XXXXXXX,      XXXXXXX,  XXXXXXX,
+        KC_END,  XXXXXXX, KC_Q,        KC_W,        KC_F,        KC_P,        KC_B,             KC_MPRV, KC_J,    KC_L,         KC_U,          KC_Y,         KC_QUOT,      KC_SCLN,  XXXXXXX,
+        KC_PGUP, KC_TAB,  GUI_T(KC_A), ALT_T(KC_R), CTL_T(KC_S), SFT_T(KC_T), KC_G,             KC_MNXT, KC_M,    RSFT_T(KC_N), RCTL_T(KC_E),  RALT_T(KC_I), RGUI_T(KC_O), KC_ENTER,
+        KC_PGDN, KC_ESC,  KC_X,        KC_C,        KC_D,        KC_V,        KC_Z,             KC_MPLY, KC_SLSH, KC_K,         KC_H,          KC_COMM,      KC_DOT,       MO(_NAV), XXXXXXX,
+                 XXXXXXX,                           TL_LOWR,     KC_SPC,      XXXXXXX,          XXXXXXX, KC_BSPC, TL_UPPR,                                                           XXXXXXX
     ),
     [_QWERTY] = LAYOUT(
         _______, _______, _______,     _______,     _______,     _______,     _______, _______, _______, _______, _______,      _______,      _______,         _______,         _______, _______,
@@ -49,10 +49,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                  XXXXXXX,                           _______,     _______,     XXXXXXX,          XXXXXXX, _______, _______,                                                         XXXXXXX
     ),
     [_SYM] = LAYOUT(
-        QK_BOOT,      XXXXXXX,  XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,   XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX, XXXXXXX,
-        XXXXXXX,      XXXXXXX,  XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,          XXXXXXX, XXXXXXX,   XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX, XXXXXXX,
-        DF(_COLEMAK), _______,  S(KC_MINS), UKC_LBRAKT, UKC_LBRACE, UKC_LPAREN, XXXXXXX,          XXXXXXX, XXXXXXX,   UKC_RPAREN, UKC_RBRACE, UKC_RBRAKT, KC_EQL,     _______,
-        DF(_QWERTY),  _______,  KC_GRV,     S(KC_GRV),  KC_MINS,    XXXXXXX,    XXXXXXX,          XXXXXXX, XXXXXXX,   XXXXXXX,    S(KC_EQL),  KC_BSLS,    S(KC_BSLS), _______, XXXXXXX,
-                      XXXXXXX,                          _______,    _______,    XXXXXXX,          XXXXXXX, _______,   _______,                                                 XXXXXXX
+        QK_BOOT, XXXXXXX,  XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,   XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX, XXXXXXX,
+        XXXXXXX, XXXXXXX,  XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,          XXXXXXX, XXXXXXX,   XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX, XXXXXXX,
+        XXXXXXX, _______,  S(KC_MINS), UKC_LBRAKT, UKC_LBRACE, UKC_LPAREN, XXXXXXX,          XXXXXXX, XXXXXXX,   UKC_RPAREN, UKC_RBRACE, UKC_RBRAKT, KC_EQL,     _______,
+        TGDF,    _______,  KC_GRV,     S(KC_GRV),  KC_MINS,    XXXXXXX,    XXXXXXX,          XXXXXXX, XXXXXXX,   XXXXXXX,    S(KC_EQL),  KC_BSLS,    S(KC_BSLS), _______, XXXXXXX,
+                 XXXXXXX,                          _______,    _______,    XXXXXXX,          XXXXXXX, _______,   _______,                                                 XXXXXXX
     )
 };

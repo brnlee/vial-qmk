@@ -84,31 +84,32 @@ void keyboard_post_init_kb(void) {
 
 // This function is called when layers change
 __attribute__((weak)) layer_state_t layer_state_set_user(layer_state_t state) {
-    rgblight_sethsv_range(0, 0, 0, SCROLL_INDICATOR_INDEX, NUM_INDICATOR_INDEX + 1);
+    rgblight_sethsv_at(0, 0, 0, NUM_INDICATOR_INDEX);
+    rgblight_sethsv_at(0, 0, 0, SCROLL_INDICATOR_INDEX);
 
     switch(get_highest_layer(state)) {
         case _NAV:   
             set_indicator(NUM_INDICATOR_INDEX);
             break;
         case _NUM:   
-            set_indicator(CAPS_INDICATOR_INDEX);
+            set_indicator(SCROLL_INDICATOR_INDEX);
             break;
         case _SYM:
             set_indicator(NUM_INDICATOR_INDEX);
-            set_indicator(CAPS_INDICATOR_INDEX);
-            break;
-        default:
-            break;
-    }
-
-    switch (get_highest_layer(default_layer_state)) {
-        case _QWERTY:
             set_indicator(SCROLL_INDICATOR_INDEX);
             break;
         default:
             break;
     }
+    return state;
+}
 
+__attribute__((weak)) layer_state_t default_layer_state_set_user(layer_state_t state) {
+    if (get_highest_layer(state) == _COLEMAK) {
+        rgblight_sethsv_at(0, 0, 0, CAPS_INDICATOR_INDEX);
+    } else {
+        set_indicator(CAPS_INDICATOR_INDEX);
+    }
     return state;
 }
 
